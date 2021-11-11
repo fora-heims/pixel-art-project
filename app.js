@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import {
+    backgroundImage,
     createImage,
     getStorage,
     renderImage,
@@ -261,4 +262,11 @@ saveDownload.addEventListener('click', ()=>{
     link.href = rendered.toDataURL();
     link.click();
     link.delete;
+});
+
+const imgLinkInput = document.getElementById('image-link');
+const backgroundButton = document.getElementById('background-button');
+backgroundButton.addEventListener('click', () => {
+    let file = imgLinkInput.value;
+    backgroundImage(file);
 });
