@@ -27,14 +27,14 @@ export function createImage(title, heightInput, widthInput) {
     if (isEven(widthInput) === true) {
         for (let i = 0; i < halfArea; i++) {  
             if (isEven(y) === true) {
-                colorArray.push('rgb(243, 243, 244)', 'rgb(216, 216, 217)');
+                colorArray.push('rgba(220, 220, 220, 0.4)', 'rgba(130, 130, 130, 0.4)');
                 x--;
                 if (x === 0){
                     y++;
                     x = widthInput / 2;
                 }
             } else {
-                colorArray.push('rgb(216, 216, 217)', 'rgb(243, 243, 244)');
+                colorArray.push('rgba(130, 130, 130, 0.4)', 'rgba(220, 220, 220, 0.4)');
                 x--;
                 if (x === 0){
                     y++;
@@ -44,7 +44,7 @@ export function createImage(title, heightInput, widthInput) {
         }
     } else { 
         for (let i = 0; i < halfArea; i++) {  
-            colorArray.push('rgb(216, 216, 217)', 'rgb(243, 243, 244)'); 
+            colorArray.push('rgba(130, 130, 130, 0.4)', 'rgba(220, 220, 220, 0.4)'); 
         }
 
     }
@@ -95,4 +95,11 @@ export function renderImage(imageObject) {
         
         canvas.append(pixel);  
     }
+}
+
+export function backgroundImage(file) {
+    const canvas = document.getElementById('canvas');
+    canvas.style.backgroundImage = `url(${file})`;
+    canvas.style.backgroundRepeat = 'no-repeat';
+    canvas.style.backgroundSize = 'contain';
 }

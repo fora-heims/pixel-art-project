@@ -187,6 +187,6 @@ audio, #audio-button {
     margin-top: 30px;
 }
 
-#audio-button {
+#audio-button, #background-button, #image-link {
     margin-bottom: 40px;
 }
