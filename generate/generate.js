@@ -16,6 +16,9 @@ function setGeneratedStorage(key, array) {
     };
     let string = JSON.stringify(object);
     localStorage.setItem(key, string);
+    let keys = getStorage('KEYS');
+    keys.keys.push(key);
+    setStorage('KEYS', keys);
 }
 
 button.addEventListener('click', () => {
@@ -25,9 +28,6 @@ button.addEventListener('click', () => {
     }
     let key = input.value;
     setGeneratedStorage(key, array);
-    let keys = getStorage('KEYS');
-    keys.keys.push(key);
-    setStorage('KEYS', keys);
 });
 
 verticalButton.addEventListener('click', () => {
@@ -40,9 +40,6 @@ verticalButton.addEventListener('click', () => {
     }
     let key = input3.value;
     setGeneratedStorage(key, array);
-    let keys = getStorage('KEYS');
-    keys.keys.push(key);
-    setStorage('KEYS', keys);
 });
 
 horizontalButton.addEventListener('click', () => {
@@ -52,7 +49,4 @@ horizontalButton.addEventListener('click', () => {
     }
     let key = input2.value;
     setGeneratedStorage(key, array);
-    let keys = getStorage('KEYS');
-    keys.keys.push(key);
-    setStorage('KEYS', keys);
 });
