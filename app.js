@@ -91,6 +91,8 @@ if (!localStorage.getItem('ACTIVEIMAGE')) {
                     canvasDivs[i].style.backgroundColor = colorSelect.value;
                 } else if (selectedTool.id === 'eraser') {
                     canvasDivs[i].style.backgroundColor = eraserBackgroundCanvas.colors[i];
+                } else if (selectedTool.id === 'transparent') {
+                    canvasDivs[i].style.backgroundColor = 'transparent';
                 } else if (selectedTool.id === 'rainbow') {
                     if (rainbowIndex === 7) {
                         rainbowIndex = 0;
@@ -109,6 +111,8 @@ if (!localStorage.getItem('ACTIVEIMAGE')) {
                 canvasDivs[i].style.backgroundColor = colorSelect.value;
             } else if (selectedTool.id === 'eraser') {
                 canvasDivs[i].style.backgroundColor = eraserBackgroundCanvas.colors[i];
+            } else if (selectedTool.id === 'transparent') {
+                canvasDivs[i].style.backgroundColor = 'transparent';
             } else if (selectedTool.id === 'rainbow') {
                 if (rainbowIndex === 7) {
                     rainbowIndex = 0;
@@ -177,6 +181,8 @@ startBtn.addEventListener('click', () => {
                         canvasDivs[i].style.backgroundColor = colorSelect.value;
                     } else if (selectedTool.id === 'eraser') {
                         canvasDivs[i].style.backgroundColor = eraserBackgroundCanvas.colors[i];
+                    } else if (selectedTool.id === 'transparent') {
+                        canvasDivs[i].style.backgroundColor = 'transparent';
                     } else if (selectedTool.id === 'rainbow') {
                         if (rainbowIndex === 7) {
                             rainbowIndex = 0;
@@ -195,6 +201,8 @@ startBtn.addEventListener('click', () => {
                     canvasDivs[i].style.backgroundColor = colorSelect.value;
                 } else if (selectedTool.id === 'eraser') {
                     canvasDivs[i].style.backgroundColor = eraserBackgroundCanvas.colors[i];
+                } else if (selectedTool.id === 'transparent') {
+                    canvasDivs[i].style.backgroundColor = 'transparent';
                 } else if (selectedTool.id === 'rainbow') {
                     if (rainbowIndex === 7) {
                         rainbowIndex = 0;
