@@ -1,7 +1,7 @@
 import { getStorage, setStorage, titleKey } from '../utils.js';
 import { gallery } from '../assets/our-art.js';
 
-const keysObject = getStorage('KEYS');
+const keysObject = getStorage('KEYS') || { keys: [] };
 const keys = keysObject.keys;
 const galleryContainer = document.querySelector('.gallery-container__cards');
 
@@ -39,23 +39,6 @@ function renderGalleryImage(imageObject) {
 
 localStorage.removeItem('ACTIVEIMAGE');
 
-for (let key of keys) {
-    const galleryImageObject = getStorage(key);
-    const galleryCard = document.createElement('div');
-    galleryCard.classList.add('gallery-card');
-    galleryCard.addEventListener('click', () => {
-        setStorage('ACTIVEIMAGE', key);
-        window.location.replace('../index.html');
-    });
-    const galleryCanvas = renderGalleryImage(galleryImageObject);
-    galleryCanvas.classList.add('gallery-canvas');
-    const cardTitle = document.createElement('p');
-    cardTitle.textContent = galleryImageObject.title;
-    galleryCard.append(galleryCanvas, cardTitle);
-
-    galleryContainer.append(galleryCard);
-}
-
 for (let images of gallery) {
     let exists = false;
     for (let key of keys) {
@@ -81,3 +64,20 @@ for (let images of gallery) {
 
         galleryContainer.append(galleryCard);
     }}
+
+for (let key of keys) {
+    const galleryImageObject = getStorage(key);
+    const galleryCard = document.createElement('div');
+    galleryCard.classList.add('gallery-card');
+    galleryCard.addEventListener('click', () => {
+        setStorage('ACTIVEIMAGE', key);
+        window.location.replace('../index.html');
+    });
+    const galleryCanvas = renderGalleryImage(galleryImageObject);
+    galleryCanvas.classList.add('gallery-canvas');
+    const cardTitle = document.createElement('p');
+    cardTitle.textContent = galleryImageObject.title;
+    galleryCard.append(galleryCanvas, cardTitle);
+
+    galleryContainer.append(galleryCard);
+}
